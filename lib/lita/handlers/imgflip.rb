@@ -10,6 +10,7 @@ module Lita
         config.password = nil
       end
 
+      route %r{(BATMAN: .*) (ROBIN: .*)}i,                         :meme_batman,           help: { "BATMAN: .. ROBIN: .." => "generates Batman Comic meme" }
       route %r{(Y U NO) (.+)}i,                                    :meme_y_u_no,           help: { "Y U NO..." => "generates Y U NO meme"}
       route %r{(I DON'?T ALWAYS .*) (BUT WHEN I DO,? .*)}i,        :meme_i_dont_always,    help: { "I DON'T ALWAYS .. BUT WHEN I DO, .." => "generates The Most Interesting Man in the World meme"} 
       route %r{(.*)(O\s?RLY\??.*)}i,                               :meme_orly,             help: { "..O RLY.." => "generates O RLY meme" }              
@@ -37,7 +38,9 @@ module Lita
       route %r{(.*) (SHUT UP AND TAKE MY MONEY)}i,                 :meme_take_my_money,    help: { ".. SHUT UP AND TAKE MY MONEY" => "generates Shut Up and Take My Money Fry meme." }
       route %r{(YOU KNOW WHAT REALLY GRINDS MY GEARS[?,]?) (.*)}i, :meme_grinds_my_gears,  help: { "YOU KNOW WHAT REALLY GRINDS MY GEARS? .." => "generates Peter Griffin News meme." }
 
-
+      def meme_batman(response)
+        generate_meme(response, 438680)
+      end
 
       def meme_y_u_no(response)
         generate_meme(response, 61527)
